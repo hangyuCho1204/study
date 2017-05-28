@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="house" class="spring.hw.House" />
+	
+	<bean id="house2" class="spring.hw.House">
+		<property name="price" value="2000"/>
+		<property name="address" value="갱냄"/>
+	</bean>
+	
+	<bean id="Bookcase" class="spring.hw.Bookcase"/>
+	<bean id="Dresser" class="spring.hw.Dresser"/>
+	<bean id="Wardrobe" class="spring.hw.Wardrobe"/>
+	
+	<bean id="KimchiRefrigerator" class="spring.hw.KimchiRefrigerator"/>
+	<bean id="NormalRefrigerator" class="spring.hw.NormalRefrigerator"/>
+	<bean id="Radio" class="spring.hw.Radio"/>
+	<bean id="Tv" class="spring.hw.Tv"/>
+	
+	
+	
+	<bean id="house3" class="spring.hw.House">
+		<property name="price" value="3000"/>
+		<property name="address" value="도쿄"/>
+		<property name="furniture">
+			<list>
+				<ref bean="Bookcase"/>
+				<ref bean="Dresser"/>
+				<ref bean="Wardrobe"/>
+			</list>
+		</property>	
+		<property name="HomeAppliances">
+			<list>
+				<ref bean="KimchiRefrigerator"/>
+				<ref bean="NormalRefrigerator"/>
+				<ref bean="Radio"/>
+				<ref bean="Tv"/>
+			</list>
+		</property>
+		
+	</bean>
+		
+	
+	
+</beans>

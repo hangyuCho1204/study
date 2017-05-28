@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xmlns:p="http://www.springframework.org/schema/p"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 방법1 -->
+	<!-- <bean id="department" class="spring.ex02.Department" >
+		<property name="name" value="미즈사랑팀" />
+	</bean>
+	
+	 <bean id="employee" class="spring.ex02.Employee">
+		<property name="name" value="사원" />
+		<property name="dept" ref="department"/>
+	</bean>  -->
+	
+	<!-- 방법2 : 내부 빈 주입 -->
+	 <bean id="employee" class="spring.ex02.Employee">
+		<property name="name" value="임미영" />
+		<property name="dept">
+			<bean class="spring.ex02.Department">
+				<property name="name" value="재무팀"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 방법3 : 네임플레이스 적용 -->
+	<!-- <bean id="department" class="spring.ex02.Department" >
+		<property name="name" value="미즈사랑팀" />
+	</bean>
+	
+	<bean id="employee"
+		  class="spring.ex02.Employee"
+		  p:name="임미영"
+		  p:dept-ref="department"
+
+	/>  -->
+
+
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="FinanceTeam" class="spring.ex03.FinanceTeam"/>
+	<bean id="PlanningTeam" class="spring.ex03.PlanningTeam"/>
+	<bean id="BusinessTeam" class="spring.ex03.BusinessTeam"/>
+	<bean id="company" class="spring.ex03.Company">
+		<property name="department">
+			<list>
+				<ref bean="FinanceTeam"/>
+				<ref bean="PlanningTeam"/>
+				<ref bean="BusinessTeam"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- map -->
+	
+	<bean id="company2" class="spring.ex03.Company">
+		<property name="dept">
+			<map>
+				<entry key="0001" value-ref="BusinessTeam"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- Properties (properties = Map<String, String>)-->
+	<bean id="company3" class="spring.ex03.Company">
+		<property name="d">
+			<props>
+				<prop key="001">비지니스 실적</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

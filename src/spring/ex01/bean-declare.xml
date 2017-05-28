@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 1.빈선언 : 기본생성자 이용 -->	
+	<bean id="dog" class="spring.ex01.Dog"/>
+	<!-- Dog dog = new Dog(); -->
+	<bean id="cat" class="spring.ex01.Cat"></bean>
+	
+	<!-- 2.생성자 주입 -->
+	<bean id="dog2" class="spring.ex01.Dog">
+		<constructor-arg value="뽀삐" />
+	</bean>
+	
+	<bean id="dog3" class="spring.ex01.Dog">
+		<constructor-arg value="뽀삐" />
+		<constructor-arg value="덕구" />
+	</bean>
+	
+	<bean id="dog4" class="spring.ex01.Dog">
+		<constructor-arg value="뽀삐" />
+		<constructor-arg value="맛난거" />
+		<constructor-arg ref="cat" />
+	</bean>
+	
+	<bean id="zoo" class="spring.ex01.Zoo" factory-method="getInstance"/>	
+	
+</beans>
